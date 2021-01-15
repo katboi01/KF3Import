@@ -113,8 +113,8 @@ rollout KF3Importer "Kemono Friends 3 Import Tool" width:162 height:404
 		$md_eye_base.modifiers[#Edit_Normals].EditNormalsMod.AverageGlobal useThresh:on Threshold:0.001
 		select tempObjects
 		--step 3: hide stuff
-		tempObjects = #($md_eye_special_a, $md_eye_special_b)
-		hide tempObjects
+		--tempObjects = #($md_eye_special_a, $md_eye_special_b)
+		--hide tempObjects
 		--step 4: materials
 		aNames = #()
 		aMats = #()
@@ -145,8 +145,9 @@ rollout KF3Importer "Kemono Friends 3 Import Tool" width:162 height:404
 				(
 					tempMaterial = aMats[1]
 					if (edt_cos.text == "a") then fileTemp = edt_path.text + "\\" + cosName + "\\" + cosName + "_body.png" 
+					else if (edt_cos.text == "h") then fileTemp = edt_path.text + "\\" + cosName + "\\" + cosName + "_body.png" 
 					else if (edt_cos.text =="b") then fileTemp = edt_path.text + "\\" + charaName + edt_cos.text + "\\" + charaName + edt_cos.text + "_body.png"
-					else fileTemp = edt_path.text + "\\" + charaName + edt_cos.text + "\\" + "ch_0000_" + edt_cos.text + "_body.png"
+					else fileTemp = edt_path.text + "\\" + cosName + "\\" + "ch_0000_" + edt_cos.text + "_body.png"
 					tempTexture = bitmaptexture filename:fileTemp
 					tempMaterial.diffusemap = tempTexture
 				)
